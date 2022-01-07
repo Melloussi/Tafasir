@@ -7,7 +7,7 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper
 
 class DatabaseAccess private constructor(context: Context) {
     private val openHelper: SQLiteAssetHelper
-    private var db: SQLiteDatabase? = null
+    var db: SQLiteDatabase? = null
     var cursor: Cursor? = null
 
     init {

@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         var result = ""
         val dataAccess: DatabaseAccess = DatabaseAccess.getInstance(this)!!
         dataAccess.open()
+
         result = dataAccess.getStudentInfo(num)
         dataAccess.close()
 
