@@ -7,6 +7,11 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.core.text.HtmlCompat
 import com.network.tafasir.DATA.Database.directSqlite.DatabaseAccess
+import com.network.tafasir.DATA.Database.directSqlite.ExecuteCommand.SqliteExecuteCommand
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     lateinit var tv: TextView
@@ -26,14 +31,26 @@ class MainActivity : AppCompatActivity() {
 
         val text = "this is a text and <br/> another test again"
 //
-        tv.text = HtmlCompat.fromHtml(text, HtmlCompat.FROM_HTML_MODE_LEGACY)
-        btn.setOnClickListener(View.OnClickListener {
-            dispaly(num)
+//        tv.text = HtmlCompat.fromHtml(text, HtmlCompat.FROM_HTML_MODE_LEGACY)
+//        btn.setOnClickListener(View.OnClickListener {
+//            dispaly(num)
+//
+//            if(num < 23){
+//                num += 1
+//            }
+//        })
 
-            if(num < 23){
-                num += 1
-            }
-        })
+        val sec = SqliteExecuteCommand(this)
+        val cursor = sec.tafsir(1, 5, 1)
+        var result = "Empty Result!"
+
+        cursor.moveToFirst()
+        result = cursor.getString(cursor.getColumnIndex("tafsir"))
+        sec.close()
+
+
+        println(result)
+
 
     }
 
