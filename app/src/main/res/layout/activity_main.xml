@@ -1,34 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_margin="12dp"
-    tools:context=".MainActivity">
+    android:background="@color/Brown"
+    tools:context=".UI.Activities.MainActivity">
 
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="next"
-        android:layout_gravity="center"/>
-    <ScrollView
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World! klfl dsfmlùsdf sùlmsdflsdf
-ùmsdfmùsdfùsdfùsdfmùsdfùsdùsdf"
-            android:gravity="right"
-            android:layout_gravity="right"
-            android:textColor="@color/black"
-            android:lineSpacingExtra="8dp"
-            android:textSize="7pt"/>
-    </ScrollView>
+        android:layout_height="match_parent"
+        />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:elevation="0dp"
+        app:menu="@menu/bottom_nav"
+        android:background="@drawable/bottom_nav_shape"
+
+        app:itemTextColor="@color/bottom_nav_color"
+        app:itemIconTint="@color/bottom_nav_color"
+
+        android:layout_margin="15dp"
+        android:layout_alignParentBottom="true" />
 
 
-</LinearLayout>
+</RelativeLayout>

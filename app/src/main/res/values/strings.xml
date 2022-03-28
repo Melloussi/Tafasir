@@ -1,3 +1,50 @@
 <resources>
     <string name="app_name">Tafasir</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tafsirTest">والذين يُصَدِّقون بما أُنزل إليك أيها الرسول من القرآن، وبما أنزل إليك من الحكمة، وهي السنة، وبكل ما أُنزل مِن قبلك على الرسل من كتب، كالتوراة والإنجيل وغيرهما، ويُصَدِّقون بدار الحياة بعد الموت وما فيها من الحساب والجزاء، تصديقا بقلوبهم يظهر على ألسنتهم وجوارحهم وخص يوم الآخرة؛ لأن الإيمان به من أعظم البواعث على فعل الطاعات، واجتناب المحرمات، ومحاسبة النفس.</string>
+    <string name="ayahTest">وَٱلَّذِينَ يُؤْمِنُونَ بِمَآ أُنزِلَ إِلَيْكَ وَمَآ أُنزِلَ مِن قَبْلِكَ وَبِٱلْءَاخِرَةِ هُمْ يُوقِنُونَ</string>
+    <string name="tasbih">سبحان الله وبحمده سبحان الله العظيمَ</string>
+    <string name="soraNametext">سورة </string>
+    <string name="ayahtNumberText">عدد الآيات: </string>
+    <string name="soraType">مدنية</string>
+    <string name="soraOrderNumberText">ترتيب النزول: </string>
+    <string name="prostrationText">سجدة: </string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
+    <string name="aboutSora">المزيد من المعلومات حول سورة</string>
+
+    <string name="copyAyah">نسخ الآية</string>
+    <string name="copyAyahDone">تم نسخ الآية</string>
+
+    <string name="copyTafsir">نسخ التفسير</string>
+    <string name="copyTafsirDone">تم نسخ التفسير</string>
+
+    <string name="copyAyahWithTafsir">نسخ الآية مع التفسير</string>
+    <string name="copyAyahWithTafsirDone">تم نسخ الآية مع التفسير</string>
+
+    <string name="Share">مشاركة</string>
+
+    <string name="moyasar">تفسير الميسر</string>
+    <string name="jalalain">تفسير الجلالين</string>
+    <string name="saidi">تفسير السعدي</string>
+    <string name="ibenKatir">تفسير ابن كثير</string>
+    <string name="tentawi">تفسير الوسيط لطنطاوي</string>
+    <string name="baghawi">تفسير البغوي</string>
+    <string name="qurtobi">تفسير القرطبي</string>
+    <string name="tabari">تفسير الطبري</string>
+
+    <string name="search">ابحث</string>
+    <string name="searchForSora">ابحث عن سورة</string>
+    <string name="searchForAyah">ابحث عن آية</string>
+
+    <string name="reading">قراء</string>
+    <string name="favorite">المفضلة</string>
+    <string name="bookMark">سجل</string>
+
+    <string name="ayahAddedToFavorite">تم تفضيل الآية</string>
+    <string name="ayahAddedToBookmark">تم حفظ الاية لي رجوع لها لاحقاً</string>
+
+    <string name="ayah">الآيةً</string>
+
 </resources>

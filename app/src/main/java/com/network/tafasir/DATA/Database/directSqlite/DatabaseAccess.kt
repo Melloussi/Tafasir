@@ -24,23 +24,10 @@ class DatabaseAccess private constructor(context: Context) {
         }
     }
 
-    fun getStudentInfo(num: Int): String {
-        var result = ""
-        cursor = db!!.rawQuery("SELECT about_sora FROM sowar WHERE sora_number = $num", null)
-        if (cursor != null) {
-            if (cursor!!.moveToFirst()) {
-                //Extracting Data From Rows
-                result = cursor!!.getString(cursor!!.getColumnIndex("about_sora"))
-            }
-            cursor!!.close()
-            return result
-        }
-        return "No Result!"
-    }
-
     companion object {
         private var instance: DatabaseAccess? = null
         fun getInstance(context: Context): DatabaseAccess? {
+
             if (instance == null) {
                 instance = DatabaseAccess(context)
             }
