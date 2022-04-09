@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="90dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/sowraIndexCard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="11dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/ic_start_icon_2" />
+
+                <TextView
+                    android:id="@+id/soraNumberTv"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/DarkGreen"
+                    android:textSize="6pt" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="70dp"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/soraTypeTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:gravity="bottom|center"
+                    android:text="مكية"
+                    android:textColor="@color/DarkGreen"
+                    android:textSize="8pt"
+                    android:textStyle="" />
+
+                <TextView
+                    android:id="@+id/ayahtNumberTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_below="@id/soraTypeTv"
+                    android:gravity="top|center"
+                    android:text="آيات 7 "
+                    android:textSize="8pt" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/soraNameTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="12dp"
+                    android:gravity="center"
+                    android:text="الفاتحة"
+                    android:textColor="@color/DarkGreen"
+                    android:textSize="11pt" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

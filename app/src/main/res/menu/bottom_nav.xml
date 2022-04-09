@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/reading"
+        android:title="@string/reading"
+        android:icon="@drawable/ic_book"/>
+    <item android:id="@+id/favorite"
+        android:title="@string/favorite"
+        android:icon="@drawable/ic_white_heart"/>
+    <item android:id="@+id/bookMark"
+        android:title="@string/bookMark"
+        android:icon="@drawable/ic_bookmark_white"/>
+</menu>

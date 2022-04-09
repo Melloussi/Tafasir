@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/moyasar" android:title="@string/moyasar"/>
+    <item android:id="@+id/jalalain" android:title="@string/jalalain"/>
+    <item android:id="@+id/saidi" android:title="@string/saidi"/>
+    <item android:id="@+id/ibenKatir" android:title="@string/ibenKatir"/>
+    <item android:id="@+id/tentawi" android:title="@string/tentawi"/>
+    <item android:id="@+id/baghawi" android:title="@string/baghawi"/>
+    <item android:id="@+id/qurtobi" android:title="@string/qurtobi"/>
+    <item android:id="@+id/tabari" android:title="@string/tabari"/>
+
+</menu>

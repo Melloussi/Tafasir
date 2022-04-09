@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/LightBrown"
+    tools:context=".UI.Fragments.SowarIndexF">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sowarIndexRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/sowarIndexCard"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        app:cardCornerRadius="30dp"
+        android:layout_centerInParent="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/tasbihCard"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:cardBackgroundColor="@color/DarkGreen"
+                app:cardCornerRadius="20dp">
+                <TextView
+                    android:id="@+id/tasbihTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/tasbih"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:gravity="center" />
+            </androidx.cardview.widget.CardView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/tasbihCard">
+                <ProgressBar
+                    android:id="@+id/sowarIndexProgress"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:indeterminateTint="@color/DarkGreen"
+                    android:layout_centerInParent="true"/>
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

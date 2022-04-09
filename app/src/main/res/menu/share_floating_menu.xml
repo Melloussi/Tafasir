@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/copyAyah" android:title="@string/copyAyah"/>
+    <item android:id="@+id/copyTafsir" android:title="@string/copyTafsir"/>
+    <item android:id="@+id/copyAyahWithTafsir" android:title="@string/copyAyahWithTafsir"/>
+    <item android:id="@+id/share" android:title="@string/Share"/>
+</menu>

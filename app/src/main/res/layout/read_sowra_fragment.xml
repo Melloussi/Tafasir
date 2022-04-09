@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Brown"
+    tools:context=".UI.Fragments.ReadSowraF">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dp">
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Brown"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsingToolBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/readAyahInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="215dp"
+                        android:layout_marginBottom="15dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="180dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/round_corner">
+
+                            <ImageView
+                                android:id="@+id/quranImg"
+                                android:layout_width="160dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="10dp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_toRightOf="@id/quranImg"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/soraNameTv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="40dp"
+                                    android:fontFamily="@font/tafsir_font_a"
+                                    android:gravity="center"
+                                    android:text="@string/soraNametext"
+                                    android:textColor="@color/DarkGreen"
+                                    android:textSize="10pt"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/soraTypeTv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:fontFamily="@font/tafsir_font_a"
+                                    android:gravity="center"
+                                    android:text="@string/soraType"
+                                    android:textColor="@color/DarkGreen"
+                                    android:textSize="7pt" />
+
+                                <TextView
+                                    android:id="@+id/prostrationTv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:fontFamily="@font/tafsir_font_a"
+                                    android:gravity="center"
+                                    android:text="@string/prostrationText"
+                                    android:textColor="@color/DarkGreen"
+
+                                    android:textSize="7pt" />
+
+                                <TextView
+                                    android:id="@+id/ayahtNumberTv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:fontFamily="@font/tafsir_font_a"
+                                    android:gravity="center"
+                                    android:text="@string/ayahtNumberText"
+                                    android:textColor="@color/DarkGreen"
+                                    android:textSize="7pt" />
+
+                                <TextView
+                                    android:id="@+id/soraOrderNumberTv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:fontFamily="@font/tafsir_font_a"
+                                    android:gravity="center"
+                                    android:text="@string/soraOrderNumberText"
+                                    android:textColor="@color/DarkGreen"
+                                    android:textSize="7pt" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <ImageView
+
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/ic_quran" />
+
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:background="@drawable/round_corner_brown"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/expandableLL"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/readAyahInfo"
+                            android:background="@drawable/round_corner_b"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/titleOfAboutSowraTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:fontFamily="@font/tafsir_font_a"
+                                android:gravity="center"
+                                android:text="@string/aboutSora"
+                                android:textColor="@color/DarkGreen"
+                                android:textSize="9pt" />
+
+                            <ImageView
+                                android:id="@+id/expandImg"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_more" />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/contentContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/aboutSowraTv"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="12dp"
+                                android:fontFamily="@font/tafsir_font_a"
+                                android:gravity="center"
+                                android:lineSpacingExtra="8dp"
+                                android:textColor="@color/DarkBrownPlus"
+                                android:textSize="8pt" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/readRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/readAyahCard"
+            android:layout_width="250dp"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            app:cardCornerRadius="30dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/tasbihCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:cardBackgroundColor="@color/DarkBrown"
+                    app:cardCornerRadius="20dp">
+
+                    <TextView
+                        android:id="@+id/tasbihTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/tasbih"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/tasbihCard">
+
+                    <ProgressBar
+                        android:id="@+id/readAyahProgress"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        android:indeterminateTint="@color/DarkBrown" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

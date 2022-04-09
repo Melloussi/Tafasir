@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bookMarkCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:cardBackgroundColor="@color/LightGreen"
+            app:cardCornerRadius="40dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/bookmark_24"
+                android:layout_gravity="right|center"
+                android:layout_marginRight="20dp"/>
+            <TextView
+                android:id="@+id/ayahNumberTv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="الاية 285"
+                android:textSize="9pt"
+                android:textColor="@color/DarkGreenExtra"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/soraNameCircleCard"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+
+            app:cardBackgroundColor="@color/DarkGreen"
+            app:cardCornerRadius="40dp"
+            android:layout_alignParentLeft="true">
+            <TextView
+                android:id="@+id/soraNameTv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="البقرة"
+                android:textSize="9pt"
+                android:textColor="@color/LightGreen"
+                android:textStyle="bold"/>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>
