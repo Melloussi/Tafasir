@@ -1,3 +1,4 @@
+
 package com.network.tafasir.UI.Activities
 
 import android.annotation.SuppressLint
