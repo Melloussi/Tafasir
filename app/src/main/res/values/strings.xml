@@ -46,5 +46,6 @@
     <string name="ayahAddedToBookmark">تم حفظ الاية لي رجوع لها لاحقاً</string>
 
     <string name="ayah">الآيةً</string>
+    <string name="exitMessage">اضغط مرتين للخروج</string>
 
 </resources>

@@ -27,6 +27,7 @@ class SowarIndexF : Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.sowar_index_fragment, container, false)
+        val paddingControl = PaddingControl(view)
 
         val context = view.context
         val recyclerView: RecyclerView = view.findViewById(R.id.sowarIndexRecycler)
@@ -47,6 +48,8 @@ class SowarIndexF : Fragment() {
                 setRecycleState(recyclerView.getLayoutManager()!!.onSaveInstanceState()!!)
 
                 transaction.TransferData(list[posision].sora_number, 1, 0)
+
+
             }
 
             recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
@@ -57,6 +60,25 @@ class SowarIndexF : Fragment() {
             if(state != null){
                 recyclerView.getLayoutManager()!!.onRestoreInstanceState(state)
             }
+
+            //Padding Control
+            val listSize = adapter.itemCount
+            recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+
+                    val layoutManager =
+                        LinearLayoutManager::class.java.cast(recyclerView.layoutManager)
+                    val position = layoutManager.findLastVisibleItemPosition() + 1
+
+
+                    if (position == listSize || position > listSize) {
+                        paddingControl.addPadding()
+                    } else {
+                        paddingControl.removePadding()
+                    }
+
+                }
+            })
         })
         //
         searchResult(context, recyclerView)

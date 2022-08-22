@@ -3,12 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+
     android:layout_margin="20dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/bookMarkCard"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/Transparent"
+        app:cardCornerRadius="40dp">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"

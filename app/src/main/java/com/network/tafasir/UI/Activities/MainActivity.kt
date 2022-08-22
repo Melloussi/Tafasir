@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.AutoCompleteTextView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
@@ -30,12 +31,15 @@ class MainActivity : AppCompatActivity(), Communicat, SearchView.OnQueryTextList
     private var soraNum: Int = 1
     private var search:MenuItem? = null
     private var bottomNav:BottomNavigationView? = null
+    private var pressedTime:Long = 0
 
 
     sealed class ActiveFragment {
         object SwarIndex : ActiveFragment()
         object ReadSowra : ActiveFragment()
     }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -227,5 +231,25 @@ class MainActivity : AppCompatActivity(), Communicat, SearchView.OnQueryTextList
             mainViewModel.allSowar()
         }
     }
+
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+
+        val toastMessage = Toast.makeText(this, R.string.exitMessage, Toast.LENGTH_SHORT)
+
+        if(pressedTime + 2000 > System.currentTimeMillis()){
+            toastMessage.cancel()
+            this.finishAffinity()
+        }else{
+            toastMessage.show()
+        }
+
+        pressedTime = System.currentTimeMillis()
+
+        return super.onKeyDown(keyCode, event)
+    }
+
+
+
 
 }
