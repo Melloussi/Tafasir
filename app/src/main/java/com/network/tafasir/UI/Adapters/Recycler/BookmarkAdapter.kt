@@ -7,18 +7,21 @@ import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.network.tafasir.DATA.Database.DataClasses.BookMarkAyah
+import com.network.tafasir.DATA.Database.Room.BookMark.BookMarkEntity
 import com.network.tafasir.R
 
-class BookmarkAdapter(val context: Context, val list: List<BookMarkAyah>, val cardClicked:(position:Int)-> Unit) : RecyclerView.Adapter<BookmarkAdapter.Myholder>() {
+class BookmarkAdapter(val context: Context, val list: MutableList<BookMarkEntity>, val cardClicked:(position:Int)-> Unit, val bookMarkIconClicked:(position:Int)-> Unit) : RecyclerView.Adapter<BookmarkAdapter.Myholder>() {
 
     inner class Myholder (view: View) : RecyclerView.ViewHolder(view) {
         val soraNameTv = view.findViewById<TextView>(R.id.soraNameTv)
         val ayahNumberTv = view.findViewById<TextView>(R.id.ayahNumberTv)
         val bookMarkCard = view.findViewById<CardView>(R.id.bookMarkCard)
+        val bookMarkIcon = view.findViewById<ImageView>(R.id.bookMarkIcon)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookmarkAdapter.Myholder {
@@ -36,6 +39,9 @@ class BookmarkAdapter(val context: Context, val list: List<BookMarkAyah>, val ca
 
         holder.bookMarkCard.setOnClickListener(View.OnClickListener {
             cardClicked(position)
+        })
+        holder.bookMarkIcon.setOnClickListener(View.OnClickListener {
+            bookMarkIconClicked(position)
         })
     }
 

@@ -9,7 +9,7 @@ import com.network.tafasir.DATA.Database.DataClasses.BookMarkAyah
 interface BookMarkDao {
 
     @Query("SELECT * FROM book_mark")
-    suspend fun getAll(): List<BookMarkAyah>
+    suspend fun getAll(): MutableList<BookMarkEntity>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(bookMarkEntity: BookMarkEntity)

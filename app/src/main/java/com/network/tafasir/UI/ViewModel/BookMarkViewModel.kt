@@ -8,10 +8,11 @@ import com.network.tafasir.DATA.Database.Room.BookMark.BookMarkEntity
 import com.network.tafasir.DATA.Database.Room.BookMark.BookMarkRepo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 class BookMarkViewModel(application: Application) : AndroidViewModel(application) {
-    private val getAll = MutableLiveData<List<BookMarkAyah>>()
+    private val getAll = MutableLiveData<MutableList<BookMarkEntity>>()
     private val repo = BookMarkRepo(application)
     val result = getAll
 
@@ -32,8 +33,10 @@ class BookMarkViewModel(application: Application) : AndroidViewModel(application
     }
 
     fun delete(bookMarkEntity: BookMarkEntity){
-        CoroutineScope(Dispatchers.IO).launch {
-            repo.delete(bookMarkEntity)
+        val deleteAction =  CoroutineScope(Dispatchers.IO).async {
+             repo.delete(bookMarkEntity)
         }
+
     }
+
 }

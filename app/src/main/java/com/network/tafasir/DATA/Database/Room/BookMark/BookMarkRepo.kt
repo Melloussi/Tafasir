@@ -13,8 +13,8 @@ class BookMarkRepo(application: Application) {
 
     private val bookMarkDao:BookMarkDao = RoomDatabaseAccess.getDatabase(application).bookMarkDoa()
 
-    suspend fun getAllBookMarks(): List<BookMarkAyah> {
-        var list:List<BookMarkAyah>
+    suspend fun getAllBookMarks(): MutableList<BookMarkEntity> {
+        var list:MutableList<BookMarkEntity>
         //
         val job = CoroutineScope(Dispatchers.IO).async {
             list = bookMarkDao.getAll()
@@ -30,9 +30,10 @@ class BookMarkRepo(application: Application) {
         }
     }
 
-    suspend fun delete(bookMarkEntity: BookMarkEntity){
-        CoroutineScope(Dispatchers.IO).launch{
+    suspend fun delete(bookMarkEntity: BookMarkEntity) {
+        CoroutineScope(Dispatchers.IO).launch {
             bookMarkDao.delete(bookMarkEntity)
+
         }
     }
 }
