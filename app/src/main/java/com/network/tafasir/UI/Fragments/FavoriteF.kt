@@ -1,12 +1,16 @@
 package com.network.tafasir.UI.Fragments
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
@@ -18,6 +22,7 @@ import com.network.tafasir.DATA.Database.DataClasses.SoraWithTafsir
 import com.network.tafasir.DATA.Database.Room.Favorite.FavoriteEntity
 import com.network.tafasir.R
 import com.network.tafasir.UI.Adapters.Recycler.FavoriteAdapter
+import com.network.tafasir.UI.Controlers.ShareContent
 import com.network.tafasir.UI.ViewModel.FavoriteViewModel
 import com.network.tafasir.UI.ViewModel.MainViewModel
 
@@ -27,7 +32,10 @@ class FavoriteF : Fragment() {
     private val favoriteViewModel: FavoriteViewModel by activityViewModels()
     private val mainViewModel: MainViewModel by activityViewModels()
     private var adapter: FavoriteAdapter? = null
-    private var active = false
+    private lateinit var tfsir:String
+    private lateinit var mofsirName:String
+    private var shareIt = ShareContent()
+    private var isDefault = true
 
 
     override fun onCreateView(
@@ -47,6 +55,8 @@ class FavoriteF : Fragment() {
         favoriteViewModel.allFavorite.observe(viewLifecycleOwner, Observer { list ->
             //
 
+
+
             adapter = FavoriteAdapter(context, list
 
                 ,{ position ->
@@ -60,9 +70,26 @@ class FavoriteF : Fragment() {
 
                   //Tafsir
                     tafsirPopUpMenu(view, list[position].sora_number, list[position].ayah_number, position)
-                    
+
                 },{ position, view ->
-                    //Share
+
+                    //Share section
+
+                    //set Default Data
+                    if (isDefault){
+                        mofsirName = getString(R.string.moyasar)
+                        tfsir = list[position].tafsir
+                    }
+
+                    val data = ShareContent.SharedData(list[position].soraName,
+                        list[position].ayah,
+                        list[position].sora_number,
+                        list[position].ayah_number,
+                        tfsir,
+                        mofsirName)
+
+                    shareIt.shareContent(data, view, context)
+
             })
             recyclerView.layoutManager = LinearLayoutManager(
                 context,
@@ -106,51 +133,51 @@ class FavoriteF : Fragment() {
 
                     changeTafsir(soraNumber, ayahNumber, 1, position)
                     Toast.makeText(context, getString(R.string.moyasar), Toast.LENGTH_SHORT).show()
-                    active = true
+
                 }
                 R.id.jalalain -> {
 
                     changeTafsir(soraNumber, ayahNumber, 2, position)
                     Toast.makeText(context, getString(R.string.jalalain), Toast.LENGTH_SHORT).show()
-                    active = true
+
 
                 }
                 R.id.saidi -> {
 
                     changeTafsir(soraNumber, ayahNumber, 3, position)
                     Toast.makeText(context, getString(R.string.saidi), Toast.LENGTH_SHORT).show()
-                    active = true
+
 
                 }
                 R.id.ibenKatir -> {
 
                     changeTafsir(soraNumber, ayahNumber, 4, position)
                     Toast.makeText(context, getString(R.string.ibenKatir), Toast.LENGTH_SHORT).show()
-                    active = true
+
                 }
                 R.id.tentawi -> {
 
                     changeTafsir(soraNumber, ayahNumber, 5, position)
                     Toast.makeText(context, getString(R.string.tentawi), Toast.LENGTH_SHORT).show()
-                    active = true
+
                 }
                 R.id.baghawi -> {
 
                     changeTafsir(soraNumber, ayahNumber, 6, position)
                     Toast.makeText(context, getString(R.string.baghawi), Toast.LENGTH_SHORT).show()
-                    active = true
+
                 }
                 R.id.qurtobi -> {
 
                     changeTafsir(soraNumber, ayahNumber, 7, position)
                     Toast.makeText(context, getString(R.string.qurtobi), Toast.LENGTH_SHORT).show()
-                    active = true
+
                 }
                 R.id.tabari -> {
 
                     changeTafsir(soraNumber, ayahNumber, 8, position)
                     Toast.makeText(context, getString(R.string.tabari), Toast.LENGTH_SHORT).show()
-                    active = true
+
                 }
 
             }
@@ -165,9 +192,14 @@ class FavoriteF : Fragment() {
     private fun changeTafsir(soraNum:Int, ayahNum:Int, tafsirNum:Int, position:Int){
 
         mainViewModel.getTafsir(soraNum, ayahNum, tafsirNum){it ->
+            tfsir = it.tafsir
+            mofsirName = it.mofasir_name
             adapter!!.changeTafsir(it.tafsir, position)
+            isDefault = false
         }
     }
+
+
 
 
 }
