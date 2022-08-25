@@ -60,18 +60,7 @@ class FavoriteF : Fragment() {
 
                   //Tafsir
                     tafsirPopUpMenu(view, list[position].sora_number, list[position].ayah_number, position)
-
-                    mainViewModel.tafsir.observe(viewLifecycleOwner, Observer { list ->
-
-                        if (active) {
-                            println("---- I got you: ${list.tafsir} ------")
-                            adapter!!.changeTafsir(list.tafsir, position)
-                            active = false
-                        }
-
-                    })
-
-
+                    
                 },{ position, view ->
                     //Share
             })
@@ -105,7 +94,7 @@ class FavoriteF : Fragment() {
         return view
     }
 
-    private fun tafsirPopUpMenu(view: View, soraNumber: Int, ayahNumber: Int, position:Int)     {
+    private fun tafsirPopUpMenu(view: View, soraNumber: Int, ayahNumber: Int, position: Int)     {
 
         val popup = PopupMenu(context, view)
         popup.inflate(R.menu.tafasir_menu)
@@ -115,51 +104,51 @@ class FavoriteF : Fragment() {
             when (item.itemId) {
                 R.id.moyasar -> {
 
-                    mainViewModel.tafsir(soraNumber, ayahNumber, 1)
+                    changeTafsir(soraNumber, ayahNumber, 1, position)
                     Toast.makeText(context, getString(R.string.moyasar), Toast.LENGTH_SHORT).show()
                     active = true
                 }
                 R.id.jalalain -> {
 
-                    mainViewModel.tafsir(soraNumber, ayahNumber, 2)
+                    changeTafsir(soraNumber, ayahNumber, 2, position)
                     Toast.makeText(context, getString(R.string.jalalain), Toast.LENGTH_SHORT).show()
                     active = true
 
                 }
                 R.id.saidi -> {
 
-                    mainViewModel.tafsir(soraNumber, ayahNumber, 3)
+                    changeTafsir(soraNumber, ayahNumber, 3, position)
                     Toast.makeText(context, getString(R.string.saidi), Toast.LENGTH_SHORT).show()
                     active = true
 
                 }
                 R.id.ibenKatir -> {
 
-                    mainViewModel.tafsir(soraNumber, ayahNumber, 4)
+                    changeTafsir(soraNumber, ayahNumber, 4, position)
                     Toast.makeText(context, getString(R.string.ibenKatir), Toast.LENGTH_SHORT).show()
                     active = true
                 }
                 R.id.tentawi -> {
 
-                    mainViewModel.tafsir(soraNumber, ayahNumber, 5)
+                    changeTafsir(soraNumber, ayahNumber, 5, position)
                     Toast.makeText(context, getString(R.string.tentawi), Toast.LENGTH_SHORT).show()
                     active = true
                 }
                 R.id.baghawi -> {
 
-                    mainViewModel.tafsir(soraNumber, ayahNumber, 6)
+                    changeTafsir(soraNumber, ayahNumber, 6, position)
                     Toast.makeText(context, getString(R.string.baghawi), Toast.LENGTH_SHORT).show()
                     active = true
                 }
                 R.id.qurtobi -> {
 
-                    mainViewModel.tafsir(soraNumber, ayahNumber, 7)
+                    changeTafsir(soraNumber, ayahNumber, 7, position)
                     Toast.makeText(context, getString(R.string.qurtobi), Toast.LENGTH_SHORT).show()
                     active = true
                 }
                 R.id.tabari -> {
 
-                    mainViewModel.tafsir(soraNumber, ayahNumber, 8)
+                    changeTafsir(soraNumber, ayahNumber, 8, position)
                     Toast.makeText(context, getString(R.string.tabari), Toast.LENGTH_SHORT).show()
                     active = true
                 }
@@ -171,6 +160,13 @@ class FavoriteF : Fragment() {
 
         popup.show()
 
+    }
+
+    private fun changeTafsir(soraNum:Int, ayahNum:Int, tafsirNum:Int, position:Int){
+
+        mainViewModel.getTafsir(soraNum, ayahNum, tafsirNum){it ->
+            adapter!!.changeTafsir(it.tafsir, position)
+        }
     }
 
 

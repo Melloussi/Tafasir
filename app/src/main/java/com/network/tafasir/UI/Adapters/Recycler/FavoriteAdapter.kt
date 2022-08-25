@@ -47,6 +47,7 @@ class FavoriteAdapter(val context: Context, val list: MutableList<FavoriteEntity
         })
 
         holder.tafsirIcon.setOnClickListener(View.OnClickListener {
+            println("---- Tafsir Clicked, Position: $position ------")
             tafsirAyah(position, holder.tafsirIcon)
         })
 
