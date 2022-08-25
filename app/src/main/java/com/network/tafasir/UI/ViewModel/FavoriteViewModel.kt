@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 
 class FavoriteViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val getAll = MutableLiveData<List<FavouriteAyah>>()
+    private val getAll = MutableLiveData<MutableList<FavoriteEntity>>()
     private val repo = FavoriteRepo(application)
 
     val allFavorite = getAll

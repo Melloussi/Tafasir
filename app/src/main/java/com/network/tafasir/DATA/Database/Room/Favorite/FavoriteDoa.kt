@@ -8,7 +8,7 @@ import com.network.tafasir.DATA.Database.DataClasses.FavouriteAyah
 interface FavoriteDoa {
 
     @Query("SELECT * FROM favorite_ayah")
-    suspend fun getAll():List<FavouriteAyah>
+    suspend fun getAll():MutableList<FavoriteEntity>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(favoriteEntity: FavoriteEntity)

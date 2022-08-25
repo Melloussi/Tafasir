@@ -11,6 +11,7 @@ data class FavoriteEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val ayah_number: Int,
+    val sora_number: Int,
     val soraName:String,
     val ayah:String,
     val tafsir:String,

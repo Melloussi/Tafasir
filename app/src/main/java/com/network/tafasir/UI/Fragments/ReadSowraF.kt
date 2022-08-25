@@ -129,16 +129,19 @@ class ReadSowraF : Fragment() {
                         shareContent(list, position, view, context)
                     },
                     { position, view ->
-                        //ChangeTafsir
 
+                        //ChangeTafsir
                         tafsirPopUpMenu(list, soraNum, position + 1, view, context)
 
                     },
                     {position ->
+
+                        //Add To Favorite
                         addToFavorite(position, list)
                     },
                     {
-                            position -> saveBookmark(position, list[position].soraName, soraNum)
+                        //Save it as a BookMark
+                        position -> saveBookmark(position, list[position].soraName, soraNum)
                     })
 
                 recyclerVieww.layoutManager =
@@ -205,6 +208,7 @@ class ReadSowraF : Fragment() {
         val favoriteEntity = FavoriteEntity(
             0,
             position+1,
+            _sowraNum,
             list!![position].soraName,
             list[position].ayah,
             list[position].tafsir,

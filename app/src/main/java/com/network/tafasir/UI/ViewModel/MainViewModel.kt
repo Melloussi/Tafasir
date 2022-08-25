@@ -40,7 +40,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application), V
     override fun tafsir(soraNum: Int, ayahNum: Int, tafsirNum: Int, ) {
         CoroutineScope(Dispatchers.Main).launch {
             //
-            val tt = repo.tafsir(soraNum, ayahNum, tafsirNum)
+            tafsir.value = repo.tafsir(soraNum, ayahNum, tafsirNum)
         }
 
     }

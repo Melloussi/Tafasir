@@ -13,8 +13,8 @@ class FavoriteRepo(val application: Application) {
 
     private val favoriteDoa = RoomDatabaseAccess.getDatabase(application).favoriteDoa()
 
-    suspend fun getAllFavorite():List<FavouriteAyah>{
-        var list: List<FavouriteAyah>
+    suspend fun getAllFavorite():MutableList<FavoriteEntity>{
+        var list: MutableList<FavoriteEntity>
         //
         val job = CoroutineScope(Dispatchers.IO).async {
             list = favoriteDoa.getAll()
