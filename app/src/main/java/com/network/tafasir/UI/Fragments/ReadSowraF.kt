@@ -27,6 +27,7 @@ import com.network.tafasir.DATA.Database.Room.BookMark.BookMarkEntity
 import com.network.tafasir.DATA.Database.Room.Favorite.FavoriteEntity
 import com.network.tafasir.R
 import com.network.tafasir.UI.Adapters.Recycler.ReadAdapter
+import com.network.tafasir.UI.Controlers.ShareContent
 import com.network.tafasir.UI.ViewModel.BookMarkViewModel
 import com.network.tafasir.UI.ViewModel.FavoriteViewModel
 import com.network.tafasir.UI.ViewModel.MainViewModel
@@ -54,6 +55,10 @@ class ReadSowraF : Fragment() {
     private var gloabaleList: List<SoraWithTafsir>? = null
     var _sowraNum = 0
     var _state: Parcelable? = null
+    private lateinit var mofsirName:String
+    private lateinit var tfsir:String
+    private var shareIt = ShareContent()
+    private var isDefault = true
 
 
     override fun onCreateView(
@@ -126,7 +131,22 @@ class ReadSowraF : Fragment() {
                 val adapter = ReadAdapter(context, list,
                     { position, view ->
                         //Share
-                        shareContent(list, position, view, context)
+//                        shareContent(list, position, view, context)
+//
+                        //set Default Data
+                        if (isDefault){
+                            mofsirName = getString(R.string.moyasar)
+                            tfsir = list[position].tafsir
+                        }
+
+                        val data = ShareContent.SharedData(list[position].soraName,
+                            list[position].ayah,
+                            _sowraNum,
+                            position+1,
+                            tfsir,
+                            mofsirName)
+
+                        shareIt.shareContent(data, view, context)
                     },
                     { position, view ->
 
@@ -271,108 +291,6 @@ class ReadSowraF : Fragment() {
         popup.show()
     }
 
-    private fun shareContent(
-        list: List<SoraWithTafsir>,
-        position: Int,
-        view: View,
-        context: Context
-    ) {
-        println("Share Element at Position: ${position + 1}")
-        val popup = PopupMenu(context, view)
-        popup.inflate(R.menu.share_floating_menu)
-        popup.setOnMenuItemClickListener { item ->
-            val id = item.itemId
-            when (id) {
-                R.id.copyAyah -> {
-                    val text = formatText(
-                        list[position].soraName,
-                        position + 1,
-                        list[position].ayah,
-                        null,
-                        null
-                    )
-
-                    copyToClipBoard(text, context)
-                    Toast.makeText(context, getString(R.string.copyAyahDone), Toast.LENGTH_SHORT)
-                        .show()
-                }
-                R.id.copyTafsir -> {
-                    val text = formatText(
-                        null,
-                        null,
-                        null,
-                        list[position].mofasir_name,
-                        list[position].tafsir
-                    )
-
-                    copyToClipBoard(text, context)
-                    Toast.makeText(context, getString(R.string.copyTafsirDone), Toast.LENGTH_SHORT)
-                        .show()
-                }
-                R.id.copyAyahWithTafsir -> {
-                    val text = formatText(
-                        list[position].soraName,
-                        position + 1,
-                        list[position].ayah,
-                        list[position].mofasir_name,
-                        list[position].tafsir
-                    )
-
-                    copyToClipBoard(text, context)
-                    Toast.makeText(
-                        context,
-                        getString(R.string.copyAyahWithTafsirDone),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                R.id.share -> {
-                    val text = formatText(
-                        list[position].soraName,
-                        position + 1,
-                        list[position].ayah,
-                        list[position].mofasir_name,
-                        list[position].tafsir
-                    )
-                    val shareText = Intent().apply {
-                        action = Intent.ACTION_SEND
-                        putExtra(Intent.EXTRA_TEXT, text)
-                        type = "text/plain"
-                    }
-                    startActivity(shareText)
-                }
-            }
-
-            false
-        }
-        popup.show()
-    }
-
-    fun copyToClipBoard(text: String, context: Context) {
-        val clipboard = getSystemService(context, ClipboardManager::class.java) as ClipboardManager
-        val clip = ClipData.newPlainText("label", text)
-        clipboard.setPrimaryClip(clip)
-    }
-
-    fun formatText(
-        soraName: String?,
-        ayahNumber: Number?,
-        ayah: String?,
-        mofasirName: String?,
-        tafsir: String?
-    ): String {
-        var ayahText = ""
-        var tafsirText = ""
-
-        if (soraName != null) {
-            ayahText = " ---------- الآية $ayahNumber  من سورة $soraName ----------" +
-                    "\n\n $ayah"
-        }
-        if (mofasirName != null) {
-            tafsirText = "\n\n ---------- $mofasirName ---------- \n\n $tafsir "
-        }
-
-        return "$ayahText $tafsirText"
-    }
 
     fun getTafsir(id: Int, soraNum: Int, position: Int, message: String) {
 
@@ -383,6 +301,7 @@ class ReadSowraF : Fragment() {
             mainViewModel.soraWithTafsir.value!![position - 1].mofasir_name =
                 list.mofasir_name
             mainViewModel.soraWithTafsir.value!![position - 1].tafsir = list.tafsir
+
 
 
             recycleCopy!!.adapter!!.notifyDataSetChanged()
@@ -396,6 +315,10 @@ class ReadSowraF : Fragment() {
 
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
 
+            passData(list.tafsir, list.mofasir_name)
+
+
+
         }
 
 
@@ -407,6 +330,11 @@ class ReadSowraF : Fragment() {
         }
     }
 
+    fun passData(newTafsir:String, newMofasir:String){
+        tfsir = newTafsir
+        mofsirName = newMofasir
+        isDefault = false
+    }
 
     override fun onPause() {
         saveState()
