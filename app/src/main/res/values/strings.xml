@@ -47,5 +47,8 @@
 
     <string name="ayah">الآيةً</string>
     <string name="exitMessage">اضغط مرتين للخروج</string>
+    <string name="areYouSureFromDeleteAction">هل أنت متأكد من عملية الحذف</string>
+    <string name="thereAreNoFavourites">لايوجد اي مفضلات</string>
+    <string name="thereAreNoBookMarks">لايوجد اي محفوظات</string>
 
 </resources>

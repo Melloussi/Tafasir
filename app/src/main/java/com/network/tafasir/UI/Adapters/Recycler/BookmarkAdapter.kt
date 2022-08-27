@@ -15,9 +15,15 @@ import com.network.tafasir.DATA.Database.DataClasses.BookMarkAyah
 import com.network.tafasir.DATA.Database.Room.BookMark.BookMarkEntity
 import com.network.tafasir.R
 
-class BookmarkAdapter(val context: Context, val list: MutableList<BookMarkEntity>, val cardClicked:(position:Int)-> Unit, val bookMarkIconClicked:(position:Int)-> Unit) : RecyclerView.Adapter<BookmarkAdapter.Myholder>() {
+class BookmarkAdapter(
+    val context: Context,
+    val list: MutableList<BookMarkEntity>,
+    val cardClicked: (position: Int) -> Unit,
+    val bookMarkIconClicked: (position: Int) -> Unit,
+    val thereIsNoItem: () -> Unit
+) : RecyclerView.Adapter<BookmarkAdapter.Myholder>() {
 
-    inner class Myholder (view: View) : RecyclerView.ViewHolder(view) {
+    inner class Myholder(view: View) : RecyclerView.ViewHolder(view) {
         val soraNameTv = view.findViewById<TextView>(R.id.soraNameTv)
         val ayahNumberTv = view.findViewById<TextView>(R.id.ayahNumberTv)
         val bookMarkCard = view.findViewById<CardView>(R.id.bookMarkCard)
@@ -43,9 +49,13 @@ class BookmarkAdapter(val context: Context, val list: MutableList<BookMarkEntity
         holder.bookMarkIcon.setOnClickListener(View.OnClickListener {
             bookMarkIconClicked(position)
         })
+
     }
 
     override fun getItemCount(): Int {
+        if (list.size == 0 || list.isEmpty()) {
+            thereIsNoItem()
+        }
         return list.size
     }
 }

@@ -14,11 +14,13 @@ import com.network.tafasir.R
 class FavoriteAdapter(val context: Context, val list: MutableList<FavoriteEntity>,
                       val removeIcon: (position:Int) -> Unit,
                       val tafsirAyah: (position:Int, view:View) -> Unit,
-                      val shareAyah: (position:Int, view:View) -> Unit
+                      val shareAyah: (position:Int, view:View) -> Unit,
+                      val thereIsNoItem: () -> Unit
 
                     ) : RecyclerView.Adapter<FavoriteAdapter.MyHolder>() {
 
     inner class MyHolder(view: View):RecyclerView.ViewHolder(view){
+
 
         val ayahNumberTv: TextView = view.findViewById<TextView>(R.id.ayahNumberTv)
         val soraNameTv: TextView = view.findViewById<TextView>(R.id.soraNameTv)
@@ -41,6 +43,10 @@ class FavoriteAdapter(val context: Context, val list: MutableList<FavoriteEntity
         holder.ayahTv.text = list[position].ayah
         holder.tafsirTv.text = list[position].tafsir
 
+        if (list.isEmpty()){
+
+        }
+
         /* Listeners */
         holder.removeIcon.setOnClickListener(View.OnClickListener {
             removeIcon(position)
@@ -57,6 +63,9 @@ class FavoriteAdapter(val context: Context, val list: MutableList<FavoriteEntity
     }
 
     override fun getItemCount(): Int {
+        if (list.size == 0 || list.isEmpty()) {
+            thereIsNoItem()
+        }
         return list.size
     }
 
@@ -70,4 +79,5 @@ class FavoriteAdapter(val context: Context, val list: MutableList<FavoriteEntity
 
         this.notifyDataSetChanged()
     }
+
 }

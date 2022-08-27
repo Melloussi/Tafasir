@@ -9,14 +9,16 @@
 
     <TextView
         android:visibility="gone"
+        android:id="@+id/bookMarkDefaultMessageTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BookMark"
-        android:textColor="@color/white"
-        android:textStyle="bold"
+        android:text="@string/thereAreNoBookMarks"
         android:textSize="15pt"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/tafsir_font_a"
+        android:textStyle="bold"/>
     <androidx.recyclerview.widget.RecyclerView
+        android:visibility="visible"
         android:id="@+id/bookmarkRecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

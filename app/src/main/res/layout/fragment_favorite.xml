@@ -6,10 +6,22 @@
     android:background="@color/Brown"
     tools:context=".UI.Fragments.FavoriteF">
 
-    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/favoriteDefaultMessageTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/thereAreNoFavourites"
+        android:textSize="15pt"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/tafsir_font_a"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/favoriteRecycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:visibility="visible"/>
 
 </RelativeLayout>
