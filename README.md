@@ -13,9 +13,29 @@ I made this app project ( تفاسير القرآن الكريم -Tafaasir ) as 
 # 📱 Screenshots
 <p align="center"><img src="https://iili.io/ibOt44.jpg" width="180"/> <img src="https://iili.io/ibOpvS.jpg" width="180"/> <img src="https://iili.io/ibOma2.jpg" width="180"/> <img src="https://iili.io/ibOb3l.jpg" width="180"/> <img src="https://iili.io/ibeHu9.jpg" width="180"/></p>
 
+# 🚀 App Features
 
+<ul>
+  <li>No ADS</li>
+  <li>No Need For internet</li>
+  <li>Simple Design</li>
+  <li>Contains Eight Differnt Tafsir</li>
+  <li>Easy to Bookmark</li>
+  <li>Save your Favorite Ayaht</li>
+  <li>Search Bar to search on Sorah or Ayah</li>
+  <li>Information about each surah</li>
+  <li>Shareable Ayat</li>
+</ul>
 
+# 👨‍💻 Highlight used technologies & Techniques
 
-
-
-
+<ul>
+  <li>MVVM Design Pattern</li>
+  <li>Manual Dependency Injection</li>
+  <li>SQLITE Database: (Source of Data)</li>
+  <li>Room Database to store user data: Bookmarks, Favorites Ayat</li>
+  </ul>
+  
+ # Get in touch on
+  [![General badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/anouarMelloussi) [![General badge](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:anouarmelloussi@gmail.com)
+ 
