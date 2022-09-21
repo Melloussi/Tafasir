@@ -36,6 +36,6 @@ I made this app project ( تفاسير القرآن الكريم -Tafaasir ) as 
   <li>Room Database to store user data: Bookmarks, Favorites Ayat</li>
   </ul>
   
- # Get in touch on
+ # 📧 Get in touch on
   [![General badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/anouarMelloussi) [![General badge](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:anouarmelloussi@gmail.com)
  
