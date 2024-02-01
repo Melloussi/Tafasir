@@ -4,7 +4,7 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/) [![Percentage of issues still open](http://isitmaintained.com/badge/open/Naereen/badges.svg)](http://isitmaintained.com/project/Naereen/badges "Percentage of issues still open") [![Awesome Badges](https://img.shields.io/badge/badges-awesome-green.svg)](https://github.com/Naereen/badges) [![PyPi license](https://badgen.net/pypi/license/pip/)](https://pypi.com/project/pip/)
 
 I made this app project ( تفاسير القرآن الكريم -Tafaasir ) as an open source project, Feel Free to download it and add your touch on it.
-> **NOTE: This project not included the SQLITE Database Where all the Data Stored, The App Will Not Work Without it, you can download it from [HERE](https://duckduckgo.com) and add it manually to app/src/main/assets/databases/ you will not find the assets/databases/ Folders in this project by default, so you have to created via Android Studio after you'll import the project, than past it inside assets/databases/ that you created and you will be ready to go**
+> **NOTE: This project not included the SQLITE Database Where all the Data Stored, The App Will Not Work Without it, you can download it from [HERE](https://www.mediafire.com/file/5iyziamcob52tw4/quran.db/file) and add it manually to app/src/main/assets/databases/ you will not find the assets/databases/ Folders in this project by default, so you have to created via Android Studio after you'll import the project, than past it inside assets/databases/ that you created and you will be ready to go**
 
 # 📲 Install It Now
 
