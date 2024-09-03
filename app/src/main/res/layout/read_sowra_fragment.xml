@@ -83,7 +83,7 @@
                                     android:gravity="center"
                                     android:text="@string/prostrationText"
                                     android:textColor="@color/DarkGreen"
-
+                                    android:visibility="gone"
                                     android:textSize="7pt" />
 
                                 <TextView
