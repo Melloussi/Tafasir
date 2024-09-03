@@ -15,6 +15,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import com.network.tafasir.R
 import com.network.tafasir.UI.Communication.Communicat
 import com.network.tafasir.UI.Fragments.*
@@ -32,6 +35,7 @@ class MainActivity : AppCompatActivity(), Communicat, SearchView.OnQueryTextList
     private var search:MenuItem? = null
     private var bottomNav:BottomNavigationView? = null
     private var pressedTime:Long = 0
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
 
 
     sealed class ActiveFragment {
@@ -46,11 +50,19 @@ class MainActivity : AppCompatActivity(), Communicat, SearchView.OnQueryTextList
         setContentView(R.layout.activity_main)
         var num = 1
 
+        // Obtain the FirebaseAnalytics instance.
+        firebaseAnalytics = Firebase.analytics
+
+
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
 
         //supportActionBar!!.hide()
         val drawable = getDrawable(R.drawable.tool_bar_shape)
         supportActionBar!!.setBackgroundDrawable(drawable)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
+
+
 
 
         mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
